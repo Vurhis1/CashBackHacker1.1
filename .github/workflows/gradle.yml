@@ -1,20 +1,11 @@
-name: my workflow
-on: push
-jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
+name: Java CI with Gradle
 
-  deployment:
-    name: Deployment
+on: [push, pull_request]
+
+jobs:
+  build:
+
     runs-on: ubuntu-latest
-    needs: [test]
-    if:
-      contains('
-        CashBackHacker1.1/tree/main
-        CashBackHacker1.1/tree/TestNG
-        CashBackHacker1.1/tree/JUnit4
-      ', github.ref)
 
     steps:
       - uses: actions/checkout@v2
@@ -27,5 +18,3 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew test
-
-
