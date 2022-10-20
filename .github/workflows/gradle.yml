@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref == 'main/TestNG/JUnit4'
+    if: contains(fromJson('["refs/heads/master", "refs/heads/main"]'), github.ref)
  
     steps:
       - uses: actions/checkout@v2
