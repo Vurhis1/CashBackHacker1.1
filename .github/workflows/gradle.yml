@@ -22,3 +22,6 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew test
+      - name: Deploy app
+        run: exit 0
+
