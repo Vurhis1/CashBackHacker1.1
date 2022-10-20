@@ -11,9 +11,9 @@ jobs:
     needs: [test]
     if:
       contains('
-        refs/heads/main
-        refs/heads/TestNG
-        refs/heads/JUnit4
+        CashBackHacker1.1/tree/main
+        CashBackHacker1.1/tree/TestNG
+        CashBackHacker1.1/tree/JUnit4
       ', github.ref)
 
     steps:
@@ -27,6 +27,5 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew test
-      - name: Deploy app
-        run: exit 0
+
 
