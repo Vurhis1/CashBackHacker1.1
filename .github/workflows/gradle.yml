@@ -8,6 +8,7 @@
 name: Java CI with Gradle
 
 on: [push, pull_request]
+  
 
 jobs:
   build:
@@ -25,6 +26,11 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew test
+      - name: DNSControl check
+        uses: koenrh/dnscontrol-action@v3
+        with:
+         args: check
+      
 
 # Команда `chmod +x gradlew` делает файл gradlew исполняемым в linux. 
 # Команда `./gradlew test` собирает ваш проект и запускает тесты.
